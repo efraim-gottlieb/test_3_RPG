@@ -12,4 +12,4 @@ class Orc(Monster_building):
   def attack(self, player_to_attack, dice):
     weapon_damage = {'Knife' : 0.5, 'Sword' : 1, 'Axe' : 1.5}
     damage_weight = weapon_damage[self.weapon]
-    player_to_attack.hp -= damage_weight * self.power
+    player_to_attack.hp -= damage_weight * (self.power + dice)
