@@ -32,8 +32,9 @@ class Game:
     while game_codition:
       print(f"{current_player.name}'s tor !")
       dice = self.roll_dice(20)
-      print(f'{current_player.speed}, {dice}, ">" , {self.switch_player(current_player).armor_rating}')
-      if (current_player.speed + dice) > (self.switch_player(current_player).armor_rating):
+      print(f'{current_player.speed + dice}, ">" , {self.switch_player(current_player).armor_rating}')
+      attack_condition = (current_player.speed + dice) > (self.switch_player(current_player).armor_rating)
+      if attack_condition:
         current_player.attack(self.switch_player(current_player), self.roll_dice(6))
         print(f"{current_player.name} atack !")
         sleep(1)
