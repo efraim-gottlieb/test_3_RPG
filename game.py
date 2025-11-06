@@ -32,7 +32,7 @@ class Game:
     while game_codition:
       print(f"{current_player.name}'s tor !")
       dice = self.roll_dice(20)
-      print(f'{current_player.speed + dice}, ">" , {self.switch_player(current_player).armor_rating}')
+      print(player.speed)
       attack_condition = (current_player.speed + dice) > (self.switch_player(current_player).armor_rating)
       if attack_condition:
         current_player.attack(self.switch_player(current_player), self.roll_dice(6))
@@ -48,7 +48,7 @@ class Game:
   def roll_dice(sides):
     return randint(1, sides)
   def switch_player(self, current_player):
-    if current_player is self.player:
+    if isinstance(current_player, Player) :
       return self.monster
     else:
       return self.player
